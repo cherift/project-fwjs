@@ -1,7 +1,7 @@
 <template>
     <div class="flipper mb-3" ontouchstart="this.classList.toggle('hover');">
-        <card-front catUrl="" catName=""/>
-        <card-back catName="" catDescription=""/>    
+        <card-front :cat-url="catUrl" :cat-name="catName"/>
+        <card-back :cat-name="catName" :cat-description="catDescription"/>    
     </div>
 </template>
 

@@ -9,11 +9,10 @@
       <div class="card-group">
         <card-view 
           v-for="cat in cardList"
-          :item="cat"
           :key="cat.id"
-          :catUrl="cat.imageUrl"
-          :catName="cat.title"
-          :catDescription="cat.description"/>
+          :cat-url="cat.imageUrl"
+          :cat-name="cat.title"
+          :cat-description="cat.description"/>
       </div>
       <button class="btn btn-lg btn-danger circle add"><i class="fas fa-plus"></i></button>
     </section>
@@ -32,11 +31,13 @@
       Footer,
       CardView
     },
-    data: () => ({
-      currentY : (new Date()).getFullYear(),   
-      cardList : []
-    }),
-    created : () => {
+    data(){
+      return {
+        currentY : (new Date()).getFullYear(),   
+        cardList : []
+      }
+    },
+    created(){
       getAllCards().then(cards => {
         this.cardList = cards;
       })
